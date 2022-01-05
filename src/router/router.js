@@ -1,16 +1,18 @@
+import Dashboard from '../components/dashboard/Dashboard';
+
 const routes = [
   {
-    label: "Dashboard",
-    icon: 'chart-pie'
+    label: 'Dashboard',
+    to: '/'
   },
   {
     label: 'Add Employee',
-    icon: 'chart-pie'
+    to: 'add-employee'
   },
   {
-    label: "All Employees",
-    icon: 'chart-pie'
+    label: 'All Employees',
+    to: 'employees'
   }
-]
+];
 
-export default routes
+export default routes;

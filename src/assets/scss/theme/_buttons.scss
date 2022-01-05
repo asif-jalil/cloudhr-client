@@ -1,0 +1,150 @@
+@use 'sass:math';
+/*-----------------------------------------------
+|   Button
+-----------------------------------------------*/
+.btn{
+  text-transform: uppercase;
+  letter-spacing: .07rem;
+}
+
+/*-----------------------------------------------
+|   Icon Button
+-----------------------------------------------*/
+@mixin icon-button-variant($padding-x, $icon-width) {
+  padding-left: math.div($padding-x, 2.5) + $icon-width;
+  &.btn-icon-right {
+      padding-left: $padding-x;
+      padding-right: math.div($padding-x, 2.5) + $icon-width;
+  }
+  span,svg {
+      width: $icon-width;
+      font-size: math.div($icon-width, 2);
+  }
+}// end icon-button-variant
+
+.btn-icon {
+  @include icon-button-variant(2.5rem ,2.6rem);
+  position: relative;
+  
+  .btn-icon-wrapper {
+      left: 0;
+      top: 0;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  &.btn-icon-left {
+     .btn-icon-wrapper {
+        left: 0; margin-right: 1rem; 
+      } 
+    }
+
+  &.btn-icon-right {
+    .btn-icon-wrapper {
+          right: 0;
+          left: auto;
+          margin-left: 1rem;
+      }
+  }
+
+  &.rounded-pill {
+      &.btn-icon-left {
+         .btn-icon-wrapper {
+            border-radius: $border-radius-pill 0 0 $border-radius-pill; 
+          } 
+        }
+      &.btn-icon-right {
+         .btn-icon-wrapper {
+            border-radius: 0 $border-radius-pill $border-radius-pill 0; 
+          } 
+        }
+  }
+
+  &.btn-sm {
+     @include icon-button-variant(0.4rem, 2.5rem); 
+    }
+
+  &.btn-lg {
+     @include icon-button-variant(4rem, 4rem); 
+    }
+
+  &[class*='btn-outline-'] {
+      .btn-icon-wrapper {
+          background-color: transparent;
+          border-right-width: 1px;
+          border-right-style: solid;
+      }
+      @include hover-focus{
+        .btn-icon-wrapper {
+          background-color: rgba(0,0,0,0.1);
+          border-right-color: rgba(0,0,0,0.1);
+      }
+      }
+      &.btn-icon-right {
+          .btn-icon-wrapper {
+              border-left-width: 1px;
+              border-left-style: solid;
+              border-right: none;
+          }
+      }
+  }
+}
+
+/*-----------------------------------------------
+|   Brand Outline Buttons
+-----------------------------------------------*/
+.btn-outline-facebook {
+  @include button-outline-variant($facebook);
+}
+.btn-outline-twitter {
+  @include button-outline-variant($twitter);
+}
+.btn-outline-google-plus {
+  @include button-outline-variant($google-plus);
+}
+
+.btn-facebook {
+  @include button-variant($facebook, $facebook);
+}
+.btn-twitter {
+  @include button-variant($twitter, $twitter);
+}
+.btn-google-plus {
+  @include button-variant($google-plus, $google-plus);
+}
+.btn-github {
+  @include button-variant($github, $github);
+}
+
+
+
+// Elixir Special Play Button
+.btn-elixir-play{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 5rem;
+  width: 5rem;
+  text-align: center;
+  background-color: var(--#{$variable-prefix}white);
+  border-radius: 50%;
+  border: none;
+  position: relative;
+  font-size: 0.675rem;
+  color: var(--#{$variable-prefix}primary);
+  margin-bottom: 2.5rem;
+  &:before{
+      content: '';
+      height: 6.25rem;
+      width: 6.25rem;
+      position: absolute;
+      left: -0.625rem;
+      top: -0.625rem;
+      border: 0.625rem solid rgba(var(--#{$variable-prefix}white-rgb), 0.5);
+      border-radius: 100%;
+  }
+}
