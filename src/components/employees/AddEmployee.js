@@ -1,54 +1,77 @@
-import React, { useState } from 'react';
-import { Button, Col, Form, Row } from 'react-bootstrap';
-import { FilePond, File, registerPlugin } from 'react-filepond';
-import 'filepond/dist/filepond.min.css';
+import React, { useCallback, useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { FilePond, File, registerPlugin } from "react-filepond";
+import "filepond/dist/filepond.min.css";
+import Topbar from "../navbar/Topbar";
+import { useForm } from "react-hook-form";
+import axios from 'axios'
 
 const AddEmployee = () => {
   const [uploadCSV, setUploadCSV] = useState(false);
   const [files, setFiles] = useState([]);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const res = await axios.post('http://localhost:5000/employees/create', data)
+      console.log(res.data)
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <section className="py-5">
-      <h1>hello</h1>
-      <h2 className="mb-4">Add Employee</h2>
+    <>
+      <Topbar title="Add Employee" />
 
+      <Button onClick={() => setUploadCSV(!uploadCSV)} variant="outline-warning" className="mb-4">
+        {uploadCSV ? "Add With Form" : "Upload with CSV"}
+      </Button>
       {uploadCSV ? (
         <FilePond
           files={files}
           onupdatefiles={setFiles}
-          allowMultiple={true}
-          maxFiles={3}
-          server="/api"
-          name="files"
-          labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+          allowMultiple={false}
+          server="http://localhost:5000/employees/create"
+          name="file"
+          labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>. (Only CSV file)'
         />
       ) : (
-        <Form className="mb-5">
-          <Row className="g-3">
+        <Form className="mb-5" onSubmit={handleSubmit(onSubmit)}>
+          <Row className="g-4">
             <Col md={6}>
-              <Form.Control type="text" placeholder="First Name" />
+              <Form.Group controlId="fName">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="text" {...register("firstName", { required: true })} />
+                {errors.firstName && <small className="text-danger">First name is required</small>}
+              </Form.Group>
             </Col>
             <Col md={6}>
-              <Form.Control type="text" placeholder="Last Name" />
+              <Form.Group controlId="lName">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control type="text" {...register("lastName", { required: true })} />
+                {errors.lastName && <small className="text-danger">Last name is required</small>}
+              </Form.Group>
             </Col>
-            <Col md={6}>
-              <Form.Control type="email" placeholder="Email" />
+            <Col md={12}>
+              <Form.Group controlId="email">
+                <Form.Label>Email Name</Form.Label>
+                <Form.Control type="email" {...register("email", { required: true, pattern: /\S+@\S+\.\S+/ })} />
+                {errors.email && <small className="text-danger">Email is required with proper format</small>}
+              </Form.Group>
             </Col>
-            <Col md={6}>
-              <Button className="w-100">Submit</Button>
+            <Col md={12}>
+              <Button type="submit" variant="primary">
+                Submit
+              </Button>
             </Col>
           </Row>
         </Form>
       )}
-
-      <Button
-        onClick={() => setUploadCSV(!uploadCSV)}
-        variant="outline-success"
-        size="lg"
-      >
-        {uploadCSV ? 'Add With Form' : 'Upload with CSV'}
-      </Button>
-    </section>
+    </>
   );
 };
 

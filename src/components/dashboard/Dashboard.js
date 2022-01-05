@@ -1,7 +1,13 @@
-import React from 'react';
+import React from "react";
+import Topbar from "../navbar/Topbar";
 
 const Dashboard = () => {
-  return <div>hello</div>;
+  return (
+    <>
+      <Topbar title="Dashboard" />
+      <div>hello</div>
+    </>
+  );
 };
 
 export default Dashboard;

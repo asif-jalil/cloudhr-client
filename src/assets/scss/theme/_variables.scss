@@ -1,34 +1,34 @@
 /* prettier-ignore */
 @use 'sass:math';
-@import 'colors';
-$variable-prefix: 'cloudhr-';
+@import "colors";
+$variable-prefix: "cloudhr-";
 // Grid containers
 //
 // Define the maximum width of `.container` for different screen sizes.
 // scss-docs-start container-max-widths
 $container-max-widths: () !default;
 $container-max-widths: map-merge(
-	(
-		sm: 540px,
-		md: 720px,
-		lg: 960px,
-		xl: 1140px,
-		// xxl: 1320px,
-	),
-	$container-max-widths
+  (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    // xxl: 1320px,
+  ),
+  $container-max-widths
 );
 
 $grid-breakpoints: () !default;
 $grid-breakpoints: map-merge(
-	(
-		xs: 0,
-		sm: 576px,
-		md: 768px,
-		lg: 992px,
-		xl: 1200px,
-		// xxl: 1400px,
-	),
-	$grid-breakpoints
+  (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    // xxl: 1400px,
+  ),
+  $grid-breakpoints
 );
 
 //*-----------------------------------------------
@@ -54,15 +54,15 @@ $youtube: #ff0001 !default;
 
 $brand-colors: () !default;
 $brand-colors: map-merge(
-	(
-		'facebook': $facebook,
-		'google-plus': $google-plus,
-		'twitter': $twitter,
-		'linkedin': $linkedin,
-		'youtube': $youtube,
-		'github': $github
-	),
-	$brand-colors
+  (
+    "facebook": $facebook,
+    "google-plus": $google-plus,
+    "twitter": $twitter,
+    "linkedin": $linkedin,
+    "youtube": $youtube,
+    "github": $github,
+  ),
+  $brand-colors
 );
 
 //*-----------------------------------------------
@@ -98,39 +98,39 @@ $spacer: 1rem !default;
 $spacers: () !default;
 
 $spacers: map-merge(
-	(
-		0: 0,
-		1: $spacer * 0.25,
-		// 4
-		2: $spacer * 0.5,
-		// 8
-		3: $spacer,
-		// 16
-		4: $spacer * 1.8,
-		// 28.8
-		5: $spacer * 3,
-		// 48
-		6: $spacer * 4,
-		// 64
-		7: $spacer * 5,
-		// 80
-		8: $spacer * 7.5,
-		// 120
-		9: $spacer * 10,
-		// 160
-		10: $spacer * 12.5,
-		// 200
-		11: $spacer * 15 // 240
-	),
-	$spacers
+  (
+    0: 0,
+    1: $spacer * 0.25,
+    // 4
+    2: $spacer * 0.5,
+    // 8
+    3: $spacer,
+    // 16
+    4: $spacer * 1.8,
+    // 28.8
+    5: $spacer * 3,
+    // 48
+    6: $spacer * 4,
+    // 64
+    7: $spacer * 5,
+    // 80
+    8: $spacer * 7.5,
+    // 120
+    9: $spacer * 10,
+    // 160
+    10: $spacer * 12.5,
+    // 200
+    11: $spacer * 15 // 240,,,,,,,,,,,,,,,,,,,,,
+  ),
+  $spacers
 );
 
 //*-----------------------------------------------
 //|   Body
 //-----------------------------------------------*/
 
-$body-bg: $white !default;
-$body-color: $gray-800 !default;
+$body-bg: tint-color($primary, 95%) !default;
+$body-color: $gray-900 !default;
 
 //*-----------------------------------------------
 //|   Link
@@ -149,9 +149,11 @@ $border-radius-pill: 50rem;
 //*-----------------------------------------------
 //|   Fonts Families
 //-----------------------------------------------*/
-$font-family-sans-serif: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
-$font-family-monospace: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !default;
-$font-family-base: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$font-family-sans-serif: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
 //*-----------------------------------------------
 //|   Fonts
@@ -160,31 +162,31 @@ $type-scale: 1.333 !default;
 $font-size-base: 1rem !default;
 $font-sizes: () !default;
 $font-sizes: map-merge(
-	(
-		'-2': math.div(1, pow($type-scale, 2)) * $font-size-base,
-		//11.11
-		'-1': math.div(1, $type-scale) * $font-size-base,
-		//13.33
-		0: $font-size-base,
-		//16
-		1: pow($type-scale, 1) * $font-size-base,
-		// 19.2
-		2: pow($type-scale, 2) * $font-size-base,
-		// 23.04
-		3: pow($type-scale, 3) * $font-size-base,
-		// 27.65
-		4: pow($type-scale, 4) * $font-size-base,
-		// 33.18
-		5: pow($type-scale, 5) * $font-size-base,
-		// 39.81
-		6: pow($type-scale, 6) * $font-size-base,
-		// 47.78
-		7: pow($type-scale, 7) * $font-size-base,
-		// 57.33
-		8: pow($type-scale, 8) * $font-size-base,
-		// 68.79
-	),
-	$font-sizes
+  (
+    "-2": math.div(1, pow($type-scale, 2)) * $font-size-base,
+    //11.11
+    "-1": math.div(1, $type-scale) * $font-size-base,
+    //13.33
+    0: $font-size-base,
+    //16
+    1: pow($type-scale, 1) * $font-size-base,
+    // 19.2
+    2: pow($type-scale, 2) * $font-size-base,
+    // 23.04
+    3: pow($type-scale, 3) * $font-size-base,
+    // 27.65
+    4: pow($type-scale, 4) * $font-size-base,
+    // 33.18
+    5: pow($type-scale, 5) * $font-size-base,
+    // 39.81
+    6: pow($type-scale, 6) * $font-size-base,
+    // 47.78
+    7: pow($type-scale, 7) * $font-size-base,
+    // 57.33
+    8: pow($type-scale, 8) * $font-size-base,
+    // 68.79
+  ),
+  $font-sizes
 );
 
 $font-size-sm: $font-size-base * 0.875 !default;
@@ -204,7 +206,7 @@ $h2-font-size: map_get($font-sizes, 4) !default;
 $h3-font-size: map_get($font-sizes, 3) !default;
 $h4-font-size: map_get($font-sizes, 2) !default;
 $h5-font-size: map_get($font-sizes, 1) !default;
-$h6-font-size: map_get($font-sizes, '-1') !default;
+$h6-font-size: map_get($font-sizes, "-1") !default;
 
 $headings-font-family: $font-family-sans-serif !default;
 $headings-font-weight: $font-weight-medium !default;
@@ -213,15 +215,15 @@ $headings-color: var(--#{$variable-prefix}headings-color) !default;
 // scss-docs-start display-headings
 $display-font-sizes: () !default;
 $display-font-sizes: map-merge(
-	(
-		1: map_get($font-sizes, 8),
-		2: map_get($font-sizes, 7),
-		3: map_get($font-sizes, 6),
-		4: map_get($font-sizes, 5),
-		5: map_get($font-sizes, 4),
-		6: map_get($font-sizes, 3)
-	),
-	$display-font-sizes
+  (
+    1: map_get($font-sizes, 8),
+    2: map_get($font-sizes, 7),
+    3: map_get($font-sizes, 6),
+    4: map_get($font-sizes, 5),
+    5: map_get($font-sizes, 4),
+    6: map_get($font-sizes, 3),
+  ),
+  $display-font-sizes
 );
 
 $display-font-weight: $font-weight-black !default;
@@ -257,9 +259,9 @@ $hr-opacity: 0.8;
 //*-----------------------------------------------
 //|   Buttons and Forms
 //-----------------------------------------------*/
-// $input-btn-padding-y: $spacer * 0.8 !default;
-// $input-btn-padding-x: $spacer * 2.5 !default;
-// $input-btn-font-size: map-get($font-sizes, '-1');
+$input-btn-padding-y: $spacer * 0.6 !default;
+$input-btn-padding-x: $spacer * 1.6 !default;
+// $input-btn-font-size: map-get($font-sizes, "-1");
 // $input-btn-line-height: 1.5;
 
 // $input-btn-padding-y-sm: $spacer * 0.4 !default;
@@ -285,13 +287,14 @@ $hr-opacity: 0.8;
 // $input-font-family: $font-family-base;
 // $input-padding-y: $spacer * 0.8;
 // $input-padding-x: $spacer * 0.8;
-// $input-bg: var(--#{$variable-prefix}100);
+$input-bg: var(--#{$variable-prefix}white);
 // $input-focus-bg: var(--#{$variable-prefix}white);
 // $form-check-input-checked-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 // $input-border-color: var(--#{$variable-prefix}input-border-color) !default;
 // $input-border-radius: 0;
 // $input-border-width: 1px;
-// $input-box-shadow: 0 0 0 transparent;
+$input-box-shadow: 0 0 0 transparent;
+$form-label-font-weight: $font-weight-semi-bold;
 // $form-select-box-shadow: 0 0 0 transparent;
 // $form-label-font-size: $font-size-base;
 // $input-font-size: $font-size-base;
@@ -305,6 +308,8 @@ $hr-opacity: 0.8;
 //*-----------------------------------------------
 //|   Navigation
 //-----------------------------------------------*/
+$nav-link-color: $white;
+$nav-link-hover-color: $secondary;
 // $navbar-nav-link-padding-x: $spacer * 1.2;
 // $nav-link-padding-y: 0.4rem;
 // $nav-link-font-weight: $font-weight-semi-bold;
@@ -370,44 +375,44 @@ $card-bg: var(--#{$variable-prefix}card-bg);
 
 $viewport-heights: () !default;
 $viewport-heights: map-merge(
-	(
-		25: 25vh,
-		50: 50vh,
-		75: 75vh,
-		100: 100vh
-	),
-	$viewport-heights
+  (
+    25: 25vh,
+    50: 50vh,
+    75: 75vh,
+    100: 100vh,
+  ),
+  $viewport-heights
 );
 
 $viewport-widths: () !default;
 $viewport-widths: map-merge(
-	(
-		25: 25vw,
-		50: 50vw,
-		75: 75vw,
-		100: 100vw
-	),
-	$viewport-widths
+  (
+    25: 25vw,
+    50: 50vw,
+    75: 75vw,
+    100: 100vw,
+  ),
+  $viewport-widths
 );
 
 $sizes: () !default;
 $sizes: map-merge(
-	(
-		25: 25%,
-		50: 50%,
-		75: 75%,
-		100: 100%,
-		auto: auto
-	),
-	$sizes
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto,
+  ),
+  $sizes
 );
 
 $gutters: () !default;
 $gutters: map-merge(
-	$spacers,
-	(
-		card: $card-spacer-x * 2
-	)
+  $spacers,
+  (
+    card: $card-spacer-x * 2,
+  )
 );
 
 //*-----------------------------------------------
