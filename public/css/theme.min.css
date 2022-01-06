@@ -57,7 +57,7 @@
   --cloudhr-white-rgb: 255, 255, 255;
   --cloudhr-black-rgb: 0, 0, 0;
   --cloudhr-body-color-rgb: 64, 64, 64;
-  --cloudhr-body-bg-rgb: 254, 246, 246;
+  --cloudhr-body-bg-rgb: 250, 250, 250;
   --cloudhr-font-sans-serif: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --cloudhr-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --cloudhr-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
@@ -66,7 +66,7 @@
   --cloudhr-body-font-weight: 400;
   --cloudhr-body-line-height: 1.45;
   --cloudhr-body-color: #404040;
-  --cloudhr-body-bg: #fef6f6;
+  --cloudhr-body-bg: #fafafa;
 }
 
 :root,
@@ -157,7 +157,7 @@
   --cloudhr-list-group-bg: #fff;
   --cloudhr-list-group-action-hover-color: #6c757d;
   --cloudhr-list-group-hover-bg: #fafafa;
-  --cloudhr-body-bg: #fef6f6;
+  --cloudhr-body-bg: #fafafa;
   --cloudhr-body-color: #404040;
   --cloudhr-headings-color: #1f1f1f;
   --cloudhr-link-color: #e7434e;
@@ -216,7 +216,7 @@
   --cloudhr-form-range-track-box-shadow: var(--cloudhr-box-shadow-inset);
   --cloudhr-form-range-thumb-bg: #e7434e;
   --cloudhr-form-range-thumb-box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.1);
-  --cloudhr-form-range-thumb-focus-box-shadow: 0 0 0 1px #fef6f6, 0 0 0 0.25rem rgba(231, 67, 78, 0.25);
+  --cloudhr-form-range-thumb-focus-box-shadow: 0 0 0 1px #fafafa, 0 0 0 0.25rem rgba(231, 67, 78, 0.25);
   --cloudhr-form-range-thumb-active-bg: #fbe1e3;
   --cloudhr-form-range-thumb-disabled-bg: #949494;
   --cloudhr-form-file-focus-border-color: #f3a1a7;
@@ -786,7 +786,7 @@ progress {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #fef6f6;
+  background-color: #fafafa;
   border: 1px solid #e1e1e1;
   border-radius: 0.25rem;
   box-shadow: var(--cloudhr-box-shadow-sm);
@@ -2497,7 +2497,7 @@ progress {
 .form-control {
   display: block;
   width: 100%;
-  padding: 0.6rem 1.6rem;
+  padding: 0.6rem 1.5rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.45;
@@ -2540,9 +2540,9 @@ progress {
   opacity: 1;
 }
 .form-control::file-selector-button {
-  padding: 0.6rem 1.6rem;
-  margin: -0.6rem -1.6rem;
-  margin-inline-end: 1.6rem;
+  padding: 0.6rem 1.5rem;
+  margin: -0.6rem -1.5rem;
+  margin-inline-end: 1.5rem;
   color: #404040;
   background-color: #f2f2f2;
   pointer-events: none;
@@ -2562,9 +2562,9 @@ progress {
   background-color: #e6e6e6;
 }
 .form-control::-webkit-file-upload-button {
-  padding: 0.6rem 1.6rem;
-  margin: -0.6rem -1.6rem;
-  margin-inline-end: 1.6rem;
+  padding: 0.6rem 1.5rem;
+  margin: -0.6rem -1.5rem;
+  margin-inline-end: 1.5rem;
   color: #404040;
   background-color: #f2f2f2;
   pointer-events: none;
@@ -2664,8 +2664,8 @@ textarea.form-control-lg {
 .form-select {
   display: block;
   width: 100%;
-  padding: 0.6rem 4.8rem 0.6rem 1.6rem;
-  -moz-padding-start: calc(1.6rem - 3px);
+  padding: 0.6rem 4.5rem 0.6rem 1.5rem;
+  -moz-padding-start: calc(1.5rem - 3px);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.45;
@@ -2673,7 +2673,7 @@ textarea.form-control-lg {
   background-color: var(--cloudhr-white);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23555555' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right 1.6rem center;
+  background-position: right 1.5rem center;
   background-size: 16px 12px;
   border: 1px solid #bebebe;
   border-radius: 0.25rem;
@@ -2692,7 +2692,7 @@ textarea.form-control-lg {
   box-shadow: var(--cloudhr-box-shadow-inset), 0 0 0 0.25rem rgba(231, 67, 78, 0.25);
 }
 .form-select[multiple], .form-select[size]:not([size="1"]) {
-  padding-right: 1.6rem;
+  padding-right: 1.5rem;
   background-image: none;
 }
 .form-select:disabled {
@@ -2832,10 +2832,10 @@ textarea.form-control-lg {
   outline: 0;
 }
 .form-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fef6f6, 0 0 0 0.25rem rgba(231, 67, 78, 0.25);
+  box-shadow: 0 0 0 1px #fafafa, 0 0 0 0.25rem rgba(231, 67, 78, 0.25);
 }
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fef6f6, 0 0 0 0.25rem rgba(231, 67, 78, 0.25);
+  box-shadow: 0 0 0 1px #fafafa, 0 0 0 0.25rem rgba(231, 67, 78, 0.25);
 }
 .form-range::-moz-focus-outer {
   border: 0;
@@ -2920,7 +2920,7 @@ textarea.form-control-lg {
   top: 0;
   left: 0;
   height: 100%;
-  padding: 1rem 1.6rem;
+  padding: 1rem 1.5rem;
   pointer-events: none;
   border: 1px solid transparent;
   transform-origin: 0 0;
@@ -2932,7 +2932,7 @@ textarea.form-control-lg {
   }
 }
 .form-floating > .form-control {
-  padding: 1rem 1.6rem;
+  padding: 1rem 1.5rem;
 }
 .form-floating > .form-control::placeholder {
   color: transparent;
@@ -2989,7 +2989,7 @@ textarea.form-control-lg {
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: 0.6rem 1.6rem;
+  padding: 0.6rem 1.5rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.45;
@@ -3021,7 +3021,7 @@ textarea.form-control-lg {
 
 .input-group-lg > .form-select,
 .input-group-sm > .form-select {
-  padding-right: 6.4rem;
+  padding-right: 6rem;
 }
 
 .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
@@ -3091,9 +3091,9 @@ textarea.form-control-lg {
   border-color: #4cd964;
 }
 .was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select:valid:not([multiple])[size="1"], .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid:not([multiple])[size="1"] {
-  padding-right: 8.8rem;
+  padding-right: 8.25rem;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23555555' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%234cd964' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-  background-position: right 1.6rem center, center right 4.8rem;
+  background-position: right 1.5rem center, center right 4.5rem;
   background-size: 16px 12px, calc(0.725em + 0.6rem) calc(0.725em + 0.6rem);
 }
 .was-validated .form-select:valid:focus, .form-select.is-valid:focus {
@@ -3180,9 +3180,9 @@ textarea.form-control-lg {
   border-color: #ff679b;
 }
 .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"], .form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"] {
-  padding-right: 8.8rem;
+  padding-right: 8.25rem;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23555555' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23ff679b'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23ff679b' stroke='none'/%3e%3c/svg%3e");
-  background-position: right 1.6rem center, center right 4.8rem;
+  background-position: right 1.5rem center, center right 4.5rem;
   background-size: 16px 12px, calc(0.725em + 0.6rem) calc(0.725em + 0.6rem);
 }
 .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus {
@@ -3229,7 +3229,7 @@ textarea.form-control-lg {
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 0.6rem 1.6rem;
+  padding: 0.6rem 1.5rem;
   font-size: 1rem;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4170,8 +4170,8 @@ textarea.form-control-lg {
 }
 
 .dropdown-toggle-split {
-  padding-right: 1.2rem;
-  padding-left: 1.2rem;
+  padding-right: 1.125rem;
+  padding-left: 1.125rem;
 }
 .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after, .dropend .dropdown-toggle-split::after {
   margin-left: 0;
@@ -4272,8 +4272,8 @@ textarea.form-control-lg {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #6c757d;
-  background-color: #fef6f6;
-  border-color: #e1e1e1 #e1e1e1 #fef6f6;
+  background-color: #fafafa;
+  border-color: #e1e1e1 #e1e1e1 #fafafa;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -4919,7 +4919,7 @@ textarea.form-control-lg {
   font-size: 1rem;
   color: #404040;
   text-align: left;
-  background-color: #fef6f6;
+  background-color: #fafafa;
   border: 0;
   border-radius: 0;
   overflow-anchor: none;
@@ -4970,7 +4970,7 @@ textarea.form-control-lg {
 }
 
 .accordion-item {
-  background-color: #fef6f6;
+  background-color: #fafafa;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 .accordion-item:first-of-type {
@@ -17220,20 +17220,6 @@ input[type=file].form-control-lg {
     margin-left: 300px;
     padding: 30px;
   }
-}
-
-.dropzone {
-  background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-  padding: 20px;
-  cursor: pointer;
-  height: 150px;
-  width: 400px;
-  border: 2px dashed cyan;
-  outline: none;
 }
 
 /*# sourceMappingURL=theme.min.css.map*/
