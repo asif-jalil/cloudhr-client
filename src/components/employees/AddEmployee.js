@@ -18,11 +18,12 @@ const AddEmployee = () => {
 	const onSubmit = async data => {
 		try {
 			const res = await axios.post('http://localhost:5000/employees/create', data);
+			console.log(res);
 			if (Object.keys(res).length !== 0) {
 				setShowToast(true);
 			}
 		} catch (error) {
-			console.error(error);
+			console.log({ error });
 		}
 	};
 
