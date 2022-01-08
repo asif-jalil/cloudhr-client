@@ -1,44 +1,62 @@
-import React from 'react';
-import { Pagination, Table } from 'react-bootstrap';
-import Topbar from '../navbar/Topbar';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Pagination, Table } from "react-bootstrap";
+import usePagination from "../../hooks/usePagination";
+import Topbar from "../navbar/Topbar";
 
 const Employees = () => {
-	return (
-		<>
-			<Topbar title='Employees' />
+  const [employees, setEmployees] = useState([]);
+  const [totalEmployee, setTotalEmployee] = useState(0);
+  const { next, prev, currentPage } = usePagination(totalEmployee);
 
-			<Table bordered className='border-300'>
-				<thead className='bg-200'>
-					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Email</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-				</tbody>
-			</Table>
-			<Pagination>
-				<Pagination.Prev>Prev</Pagination.Prev>
-				<Pagination.Next>Next</Pagination.Next>
-			</Pagination>
-		</>
-	);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get("http://localhost:5000/employees/count");
+      setTotalEmployee(res.data);
+    }
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/employees/view?page=${currentPage}`)
+      .then((res) => {
+        setEmployees(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [currentPage]);
+
+  return (
+    <>
+      <Topbar title="Employees" />
+
+      <Table bordered className="border-300">
+        <thead className="bg-200">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((employee) => (
+            <tr key={employee.id}>
+              <td>{employee.firstName}</td>
+              <td>{employee.lastName}</td>
+              <td>{employee.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      <Pagination>
+        <Pagination.Prev onClick={prev}>Prev</Pagination.Prev>
+        <Pagination.Next onClick={next}>Next</Pagination.Next>
+      </Pagination>
+    </>
+  );
 };
 
 export default Employees;
