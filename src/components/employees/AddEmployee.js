@@ -80,14 +80,14 @@ const AddEmployee = () => {
             <Col md={6}>
               <Form.Group controlId="fName">
                 <Form.Label>First Name</Form.Label>
-                <Form.Control type="text" {...register("firstName", { required: true })} />
+                <Form.Control type="text" {...register("firstName", { required: true, pattern: /^[a-z ,.'-]+$/i })} />
                 {errors.firstName && <small className="text-danger">First name is required</small>}
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group controlId="lName">
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control type="text" {...register("lastName", { required: true })} />
+                <Form.Control type="text" {...register("lastName", { required: true, pattern: /^[a-z ,.'-]+$/i })} />
                 {errors.lastName && <small className="text-danger">Last name is required</small>}
               </Form.Group>
             </Col>
