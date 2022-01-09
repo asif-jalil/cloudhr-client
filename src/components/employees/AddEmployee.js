@@ -3,7 +3,7 @@ import { Button, Col, Form, Row, Toast } from "react-bootstrap";
 import { FilePond } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import Topbar from "../navbar/Topbar";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 import classNames from "classnames";
 
