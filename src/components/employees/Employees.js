@@ -11,7 +11,7 @@ const Employees = () => {
 
 	useEffect(() => {
 		async function fetchData() {
-			const res = await axios.get('http://localhost:5000/employees/count');
+			const res = await axios.get(`${process.env.REACT_APP_API_URL}employees/count`);
 			setTotalEmployee(res.data);
 		}
 
@@ -20,7 +20,7 @@ const Employees = () => {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5000/employees/view?page=${currentPage}`)
+			.get(`${process.env.REACT_APP_API_URL}employees/view?page=${currentPage}`)
 			.then(res => {
 				setEmployees(res.data);
 			})
@@ -55,7 +55,7 @@ const Employees = () => {
 				<Pagination.Prev onClick={prev}>Prev</Pagination.Prev>
 				<Pagination.Next onClick={next}>Next</Pagination.Next>
 			</Pagination>
-			<small>Showing 5 Results of {totalEmployee}</small>
+			{totalEmployee && <small>Showing 5 Results of {totalEmployee}</small>}
 		</>
 	);
 };

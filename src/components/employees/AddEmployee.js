@@ -19,7 +19,7 @@ const AddEmployee = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    axios.post("http://localhost:5000/employees/create", data).then((res) => {
+    axios.post(`${process.env.REACT_APP_API_URL}employees/create`, data).then((res) => {
       let msg = "";
       if (res.status === 200) {
         msg = res.data.message;
@@ -50,7 +50,7 @@ const AddEmployee = () => {
           allowMultiple={false}
           oninit={() => helloLog()}
           server={{
-            url: "http://localhost:5000/employees/createbulk",
+            url: `${process.env.REACT_APP_API_URL}employees/createbulk`,
             process: {
               onerror: (error) => {
                 const parsedError = JSON.parse(error);

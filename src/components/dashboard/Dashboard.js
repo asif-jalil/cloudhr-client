@@ -8,7 +8,7 @@ const Dashboard = () => {
 	const [employees, setEmployees] = useState(0);
 	useEffect(() => {
 		async function fetchData() {
-			const res = await axios.get('http://localhost:5000/employees/count');
+			const res = await axios.get(`${process.env.REACT_APP_API_URL}employees/count`);
 			setEmployees(res.data);
 		}
 
