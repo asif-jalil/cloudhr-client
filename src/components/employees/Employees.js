@@ -15,7 +15,9 @@ const Employees = () => {
 			setTotalEmployee(res.data);
 		}
 
-		fetchData();
+		const cleanUp = fetchData();
+		
+		return cleanUp
 	}, []);
 
 	useEffect(() => {
@@ -55,7 +57,7 @@ const Employees = () => {
 				<Pagination.Prev onClick={prev}>Prev</Pagination.Prev>
 				<Pagination.Next onClick={next}>Next</Pagination.Next>
 			</Pagination>
-			{totalEmployee && <small>Showing 5 Results of {totalEmployee}</small>}
+			<small>Showing {totalEmployee >=5 ? 5 : totalEmployee} Results of {totalEmployee}</small>
 		</>
 	);
 };
