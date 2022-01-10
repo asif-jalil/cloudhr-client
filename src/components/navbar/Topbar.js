@@ -1,18 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Dropdown, Form, Row } from "react-bootstrap";
+import {apiConfig} from "../../config";
 
 const Topbar = ({ title }) => {
   const [show, setShow] = useState(false);
   const [message, setMessage] = useState("No results to show");
   const [searchTerm, setSearchTerm] = useState("");
-	const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
     const handleSearch = async (searchTerm) => {
       setMessage("No results to show");
       if (searchTerm.length >= 3) {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}employees/search?searchTerm=${searchTerm}`);
+        const res = await axios.get(`${apiConfig.url}/employees/search?searchTerm=${searchTerm}`);
         setEmployees(res.data);
       } else {
         setEmployees([]);

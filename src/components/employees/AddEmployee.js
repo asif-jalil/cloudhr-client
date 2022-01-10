@@ -6,6 +6,7 @@ import Topbar from "../navbar/Topbar";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import classNames from "classnames";
+import { apiConfig } from "../../config";
 
 const AddEmployee = () => {
   const [uploadCSV, setUploadCSV] = useState(false);
@@ -19,7 +20,7 @@ const AddEmployee = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    axios.post(`${process.env.REACT_APP_API_URL}employees/create`, data).then((res) => {
+    axios.post(`${apiConfig.url}/employees/create`, data).then((res) => {
       let msg = "";
       if (res.status === 200) {
         msg = res.data.message;
@@ -30,10 +31,6 @@ const AddEmployee = () => {
         setShowResponse({ show: true, msg: msg, isError: true });
       }
     });
-  };
-
-  const helloLog = () => {
-    setFiles(null);
   };
 
   return (
@@ -48,9 +45,8 @@ const AddEmployee = () => {
           files={files}
           onupdatefiles={setFiles}
           allowMultiple={false}
-          oninit={() => helloLog()}
           server={{
-            url: `${process.env.REACT_APP_API_URL}employees/createbulk`,
+            url: `${apiConfig.url}/employees/createbulk`,
             process: {
               onerror: (error) => {
                 const parsedError = JSON.parse(error);
